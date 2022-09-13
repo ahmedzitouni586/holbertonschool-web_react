@@ -1,15 +1,15 @@
 interface Student {
-    firstName: string,
-    lastName: string,
-    age: number,
-    location: string
+    firstName: string;
+    lastName: string;
+    age: number;
+    location: string;
 };
 
 let student1: Student = {
     firstName: 'zaraki',
     lastName: 'kenpatchi',
     age: 400,
-    location: 'soul society'
+    location: 'soul society',
 };
 let student2: Student = {
     firstName: 'jotaro',
