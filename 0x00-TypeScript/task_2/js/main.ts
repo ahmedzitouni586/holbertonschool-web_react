@@ -7,7 +7,7 @@ interface DirectorInterface {
 interface TeacherInterface {
     workFromHome(): string;
     getCoffeBreak(): string;
-    workDirectoryTasks(): string;
+    workTeacherTasks(): string;
 }
 
 class Director implements DirectorInterface {
@@ -62,4 +62,15 @@ function executeWork(employee: Director | Teacher): string {
         return employee.workDirectoryTasks()
     }
     return employee.workTeacherTasks()
+}
+
+type Subjects = "Math" | "History";
+
+function teachClass(todayClass: Subjects): string {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    }
+    else if (todayClass === "History") {
+        return "Teaching History";
+    }
 }
