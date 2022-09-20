@@ -19,6 +19,4 @@ let count = 0;
 function updateCounter() {
   count++;
   $('#count').text(`${count} clicks on the button`);
-}
-
-$('body').prepend('<p id="logo"></p>');
+};
