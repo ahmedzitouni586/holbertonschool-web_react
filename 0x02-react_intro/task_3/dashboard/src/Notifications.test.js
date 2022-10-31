@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import Notifications from './Notifications';
+import Notifications from './Notfifcations'
 
 
 describe('render of notifications', () => {
@@ -15,7 +15,7 @@ describe('render of notifications', () => {
         expect(wrapper.find('li')).toHaveLength(3);
     })
     
-    it("", () => {
+    it("renders the text Here is the list of notifications", () => {
         const txt = "Here is the list of notifications"
         const wrapper = shallow(<Notifications />)
         wrapper.update();

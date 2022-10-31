@@ -1,25 +1,23 @@
-const path = require('path');
+const path = require('path')
+
 
 module.exports = {
-    mode: "development",
-    entry: './src/index.js',
-    output:{
-        path: path.resolve('./dist'),
+    mode: 'development',
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
         filename: "bundle.js",
-        assetModuleFilename: '[name] [ext]'
+        path: path.resolve(__dirname, "./dist"),
+        clean: true,
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     devServer: {
         static: {
-            directory: path.resolve('./dist'),
-            
+            directory: path.resolve(__dirname, 'dist')
         },
-        port: 3001,
+        port: 3000,
         open: true,
         hot: true,
-        compress: true
     },
-    
     module: {
         rules: [
           {
@@ -27,30 +25,24 @@ module.exports = {
             use: ["style-loader", "css-loader"],
           },
           {
-            test: /\.(png|jpe?g|gif)$/i,
+            test: /\.(gif|png|jpe?g|svg)$/i,
             use: [
+              'file-loader',
               {
-                loader: 'file-loader',
+                loader: 'image-webpack-loader',
+                options: {
+                  bypassOnDebug: true, // webpack@1.x
+                  disable: true, // webpack@2.x and newer
+                },
               },
             ],
           },
           {
-            test: /\.(jsx|js)$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env', "@babel/preset-react"],
-                
-              }
-            }
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            loader: "babel-loader",
           },
-          {
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            type: 'asset/resource'
-          },
-          
         ],
     },
-  
+
 }

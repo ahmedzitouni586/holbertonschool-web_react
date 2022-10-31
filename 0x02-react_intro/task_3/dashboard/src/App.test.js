@@ -1,13 +1,12 @@
 import { shallow } from 'enzyme';
 import App from './App';
 
-describe("redering App component", () => {
-    it("check if app componet render without crach", () => {
+describe('it renders without crashing', () => {
+    it("check if app renders without craching", () => {
         const wrapper = shallow(<App />)
         // eslint-disable-next-line jest/valid-expect
         expect(wrapper.exists())
     })
-
     it("render div with class app-header", () => {
         const wrapper = shallow(<App />)
         wrapper.update()
@@ -25,5 +24,4 @@ describe("redering App component", () => {
         wrapper.update()
         expect(wrapper.find('div.App-body')).toHaveLength(1);
     })
-
 })
