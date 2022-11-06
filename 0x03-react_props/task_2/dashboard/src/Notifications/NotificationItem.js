@@ -1,15 +1,17 @@
 import React from "react";
 
-export default function NotificationItem(props) {
-    if (props.html) {
-        return (
-            <li type={props.type} dangerouslySetInnerHTML={props.html}>
-            </li>
+function NotificationItem({ type, value, html }) {
+    let listItem;
+
+    if (value) {
+        listItem = <li data-notification-type={type}>{value}</li>;
+    } else {
+        listItem = (
+        <li data-notification-type={type} dangerouslySetInnerHTML={html}></li>
         );
     }
-    return (
-        <li type={props.type}>
-            {props.value}
-        </li>
-    );
+
+    return listItem;
 }
+
+export default NotificationItem;

@@ -1,11 +1,15 @@
-import { shaloow } from 'enzyme';
-import Footer from './Footer';
+import { shallow } from "enzyme";
+import Footer from './Footer'
 
-it('renders without crashing', () => {
-    shallow(<Footer />);
+describe('render the Footer component to verify it renders without crashing', () => {
+    it('renders without crashing', () => {
+        const wrapper = shallow(<Footer />)
+        expext(wrapper.exists())
+    })
+    it('verify that the component contain Copyright', () => {
+        const wrapper = shallow(<Footer />)
+        wrapper.update()
+        expect(wrapper.find("div.footer p")).toHaveLength(1);
+        expect(wrapper.find("div.footer p").text()).toContain("Copyright");
+    })
 })
-
-it('renders the text copyright', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.getFooterCopy(false)).toBe('Copyright');
-});

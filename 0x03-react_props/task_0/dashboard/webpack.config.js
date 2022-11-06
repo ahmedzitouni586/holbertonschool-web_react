@@ -1,47 +1,48 @@
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: path.join(__dirname, 'dist'),
-    open: true,
-    compress: true,
-    port: 8564,
-  },
-  plugins: [
-    new HTMLWebpackPlugin({
-      filename: 'index.html',
-      template: './dist/index.html',
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.jpg$/,
-        use: {
-          loader: 'image-webpack-loader',
+    mode: 'development',
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "./dist"),
+        clean: true,
+    },
+    devtool: "inline-source-map",
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist')
         },
-      },
-    ],
-  },
-};
+        port: 3000,
+        open: true,
+        hot: true,
+    },
+    module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+          },
+          {
+            test: /\.(gif|png|jpe?g|svg)$/i,
+            use: [
+              'file-loader',
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  bypassOnDebug: true, // webpack@1.x
+                  disable: true, // webpack@2.x and newer
+                },
+              },
+            ],
+          },
+          {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            loader: "babel-loader",
+          },
+        ],
+    },
+
+}

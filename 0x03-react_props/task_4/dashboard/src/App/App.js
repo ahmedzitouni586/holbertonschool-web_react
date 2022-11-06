@@ -1,49 +1,54 @@
+import React from "react";
+import Notifications from '../Notifications/Notfifcations'
+import Login from '../Login/Login'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import './App.css';
-import React from 'react';
-import Notifications from '../Notifications/Notifications.js';
-import Header from '../Header/Header.js';
-import Login from '../Login/Login';
-import Footer from '../Footer/Footer';
-import CourseList from '../CoursList/CourseList';
+import PropTypes from 'prop-types';
+import CourseList from "../CourseList/CourseList";
 
-function App() {
-  if(!props.isLoggedIn) {
+
+function App(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if(!isLoggedIn) {
     return (
-      <React.Fragment>
-        <Notifications />
-        <div className='App'>
-          <Header />
-        </div>
-        <div className='App-body'>
-          <Login />
-        </div>
-        <div className='App-footer'>
-          <Footer />
-        </div>
-      </React.Fragment>
+    <React.Fragment>
+      <Notifications />
+      <div className="App">
+        <Header />
+        <hr></hr>
+        <Login />
+        <hr></hr>
+        <Footer />
+      </div>
+    </React.Fragment>
     );
   }
   else {
     return (
       <React.Fragment>
-        <Notifications />
-        <div className='App'>
-          <Header />
-        </div>
-        <div className='App-body'>
+      <Notifications />
+      <div className="App">
+        <Header />
+        <hr></hr>
+        <div className="App-body">
           <CourseList />
         </div>
-        <div className='App-footer'>
-          <Footer />
-        </div>
+        <hr></hr>
+        <Footer />
+      </div>
       </React.Fragment>
-    );
+    )
   }
+  
 }
 
 App.defaultProps = {
   isLoggedIn: false,
 };
 
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+};
 
 export default App;
