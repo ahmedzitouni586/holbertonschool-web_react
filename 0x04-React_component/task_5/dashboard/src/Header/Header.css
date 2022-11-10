@@ -1,7 +1,11 @@
 .App-header {
-    display: inline-flex;
+    display: flex;
+    width: 95%;
     align-items: center;
-    font-size: 20px;
-    font-family: sans-serif;
-    color: #e0454b;
-  }
+    margin-inline: auto;
+}
+
+.App-header h1 {
+    color: rgb(204, 44, 44);
+    font-size: 3rem;
+}

@@ -1,12 +1,25 @@
 .Notifications {
-    border: dotted;
-    border-color: crimson;
-    padding-left: 1rem;
-    margin-bottom: 1rem;
+    border: dashed blue 1px;
+    position: absolute;
+    right: 50px;
+    width: 400px;
+    top: 40px;
 }
-[data= "default"] {
-  color: blue;
+
+.Notifications p {
+    margin-left: 10px;
 }
- [data="urgent"] {
-   color: red;
- }
+
+.menuItem {
+    position: absolute;
+    right: 50px; 
+    top: 10ox;
+}
+
+li[data-notification-type=default] {
+    color: blue;
+}
+
+li[data-notification-type=urgent] {
+    color: red;
+}

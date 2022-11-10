@@ -1,16 +1,9 @@
 .App-body {
-    border-top: solid;
-    border-bottom: solid;
-    border-color: #e0454b;
-    min-height: 50vmax;
-    padding: 30px;
+    height: 80vh;
   }
   
-  .email {
-    margin-right: 0.5rem;
-    font-weight: bold;
-  }
-  .password, .label-button {
-    margin: 0.5rem;
-    font-weight: bold;
-  }
+  .App-body  {
+    text-align: left;
+    margin: 50px;
+    font-size: 1.5rem;
+}
