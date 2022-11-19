@@ -1,10 +1,12 @@
 import { List } from "immutable";
 
 export function getListObject(array) {
-    var llist = List(array)
+    let llist = List(array)
+    return llist
 }
 
 export function addElementToList(list, element) {
-    var liist = List(list);
+    let liist = List(list);
     liist.push(element)
+    return liist
 }
