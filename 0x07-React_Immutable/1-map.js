@@ -1,7 +1,6 @@
-import getImmutableObject from "./0-fromjs";
 import { Map } from 'immutable'
 
-getImmutableObject = (obj) => {
+const getImmutableObject = (obj) => {
     return Map(obj)
 }
 
