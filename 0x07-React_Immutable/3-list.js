@@ -6,7 +6,5 @@ export function getListObject(array) {
 }
 
 export function addElementToList(list, element) {
-    let liist = List(list);
-    liist.push(element)
-    return liist
+    return list.push(element)
 }
